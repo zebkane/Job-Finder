@@ -272,8 +272,6 @@ def is_blocked_page(html):
 
 
 def wait_for_page_ready(driver, timeout=10):
-  """Wait for the page to fully load and the DOM to stop changing."""
-  # Wait for document.readyState to be complete
   deadline = time.time() + timeout
   while time.time() < deadline:
     state = driver.execute_script("return document.readyState")
@@ -281,7 +279,6 @@ def wait_for_page_ready(driver, timeout=10):
       break
     time.sleep(0.3)
 
-  # Wait for the DOM to stabilize (stop changing)
   last_length = len(driver.page_source)
   stable_checks = 0
 
@@ -295,7 +292,6 @@ def wait_for_page_ready(driver, timeout=10):
       stable_checks = 0
       last_length = current_length
 
-  # Small buffer for any final renders
   time.sleep(0.5)
 
 
