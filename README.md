@@ -1,1 +1,2 @@
-Add job carreer sites to tack then get notifications when new jobs are posted
+*Job Scanner*
+Add job carreer sites and search terms to quickly check for new job postings
